@@ -29,12 +29,7 @@ export default function NavbarComponent() {
       </div>
 
       {/* Mobile menu */}
-      <MobileMenu
-        open={open}
-        activeMenu={activeMenu}
-        setActiveMenu={setActiveMenu}
-        setOpen={setOpen}
-      />
+      <MobileMenu open={open} setOpen={setOpen} />
     </nav>
   );
 }

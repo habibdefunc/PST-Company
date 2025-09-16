@@ -4,7 +4,6 @@ import SectionTitle from "../../lib/sectionTitle";
 import Card from "../../lib/card";
 import WaveTop from "../../lib/waveTop";
 import { Mail, Phone, MapPin } from "lucide-react";
-import Button from "../../lib/button";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },

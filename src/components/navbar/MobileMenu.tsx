@@ -19,7 +19,7 @@ export default function MobileMenu({ open, setOpen }: MobileMenuProps) {
             <NavLink
               to={menu.path}
               onClick={() => setOpen(false)}
-              className={({ isActive }) =>
+              className={({ isActive }: { isActive: boolean }) =>
                 `cursor-pointer transition duration-300 ${
                   isActive
                     ? "border-b-2 border-yellow-500 pb-1 text-yellow-500"

@@ -90,16 +90,16 @@ export default function TestimonialsSection() {
         })}
       </Swiper>
 
-      <style jsx>{`
-        .swiper-button-next,
-        .swiper-button-prev {
-          color: #fcd82a;
-        }
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-          font-size: 1.5rem;
-        }
-      `}</style>
+      <Swiper
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+      >
+        {/* tombol next/prev */}
+        <div className="swiper-button-next !text-yellow-400 after:!text-2xl"></div>
+        <div className="swiper-button-prev !text-yellow-400 after:!text-2xl"></div>
+      </Swiper>
     </motion.section>
   );
 }
