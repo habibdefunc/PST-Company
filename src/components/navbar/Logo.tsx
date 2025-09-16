@@ -2,13 +2,13 @@ import logo from "../../assets/img/logo.jpeg";
 
 export default function Logo() {
   return (
-    <div className="flex items-center gap-2 md:gap-3">
+    <div className="flex items-center gap-2 md:gap-2.5">
       <img
         src={logo}
         alt="logo"
-        className="h-10 w-10 md:h-14 md:w-14 object-contain rounded-lg shadow-sm"
+        className="h-8 w-8 md:h-10 md:w-10 object-contain rounded-md shadow-sm"
       />
-      <span className="font-extrabold text-lg md:text-2xl tracking-wide font-['Raleway']">
+      <span className="font-extrabold text-sm md:text-lg tracking-wide font-['Raleway'] leading-tight">
         PESONA SUMUT <span className="text-yellow-500">TRANS</span>
       </span>
     </div>

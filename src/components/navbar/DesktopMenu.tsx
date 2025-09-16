@@ -3,7 +3,7 @@ import { menus } from "./menudata";
 
 export default function DesktopMenu() {
   return (
-    <ul className="hidden md:flex items-center gap-8 font-semibold text-gray-700 text-base md:text-lg">
+    <ul className="hidden md:flex items-center gap-8 font-semibold text-gray-700 text-base md:text-sm">
       {menus.map((menu, index) => (
         <li key={index} className="relative list-none">
           <NavLink
