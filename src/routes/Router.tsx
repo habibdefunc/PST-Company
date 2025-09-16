@@ -1,20 +1,47 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import NavbarComponent from "../components/navbar/NavbarComponent";
-// import NotFound from "../pages/NotFound";
+// import Layanan from "../pages/Layanan";
+// import About from "../pages/About";
+// import Contact from "../pages/Contact";
+import Layout from "../components/layout/layout";
 
 export default function AppRouter() {
   return (
-    <>
-      <NavbarComponent />
-      <div className="pt-20">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/layanan-kami" element={<Layanan />} />
-          <Route path="/tentang-kami" element={<About />} />
-          <Route path="/kontak-kami" element={<Contact />} /> */}
-        </Routes>
-      </div>
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Layout>
+            <Home />
+          </Layout>
+        }
+      />
+      {/*
+      <Route
+        path="/layanan-kami"
+        element={
+          <Layout>
+            <Layanan />
+          </Layout>
+        }
+      />
+      <Route
+        path="/tentang-kami"
+        element={
+          <Layout>
+            <About />
+          </Layout>
+        }
+      />
+      <Route
+        path="/kontak-kami"
+        element={
+          <Layout>
+            <Contact />
+          </Layout>
+        }
+      />
+      */}
+    </Routes>
   );
 }
