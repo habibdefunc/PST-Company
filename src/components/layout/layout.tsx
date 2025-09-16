@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <NavbarComponent />
 
       {/* Main content dengan padding-top biar nggak ketimpa navbar */}
-      <main className="flex-grow pt-20">{children}</main>
+      <main className="flex-grow ">{children}</main>
 
       {/* WhatsApp floating button */}
       <WhatsappButton />
