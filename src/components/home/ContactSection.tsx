@@ -15,9 +15,21 @@ const fadeInUp = {
 };
 
 const contacts = [
-  { icon: Mail, text: "pesonasumuttrans@gmail.com" },
-  { icon: Phone, text: "+62 812 3456 7890" },
-  { icon: MapPin, text: "Medan, Sumatera Utara" },
+  {
+    icon: Mail,
+    text: "pesonasumuttrans@gmail.com",
+    link: "mailto:pesonasumuttrans@gmail.com",
+  },
+  {
+    icon: Phone,
+    text: "+62 822 7776 3288",
+    link: "https://wa.me/6282277763288",
+  },
+  {
+    icon: MapPin,
+    text: "Komplek Citra Wisata Blok X No.49",
+    link: "https://www.google.com/maps/search/?api=1&query=Komplek+Citra+Wisata+Blok+X+No.49",
+  },
 ];
 
 export default function ContactSection() {
@@ -30,7 +42,7 @@ export default function ContactSection() {
       className="relative py-16 px-6 md:px-16 bg-white text-center overflow-hidden"
     >
       <WaveTop />
-      <SectionTitle>Hubungi Kami</SectionTitle>
+      <SectionTitle>Kontak Kami</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
         {contacts.map((c, i) => (
           <motion.div
@@ -40,9 +52,16 @@ export default function ContactSection() {
             whileInView="visible"
             variants={fadeInUp}
           >
-            <Card className="flex flex-col items-center p-6">
+            <Card className="flex flex-col items-center justify-center p-6 min-h-[180px]">
               <c.icon className="w-8 h-8 text-yellow-500 mb-3" />
-              <p className="text-gray-600 text-sm md:text-base">{c.text}</p>
+              <a
+                href={c.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 text-sm md:text-base hover:text-yellow-500 transition-colors text-center"
+              >
+                {c.text}
+              </a>
             </Card>
           </motion.div>
         ))}
@@ -50,7 +69,7 @@ export default function ContactSection() {
       <div className="mt-6 text-center">
         <a
           href="/kontak-kami"
-          className="text-yellow-500 hover:underline text-base md:text-md "
+          className="text-yellow-500 hover:underline text-base md:text-md"
         >
           Lihat Selengkapnya &rarr;
         </a>

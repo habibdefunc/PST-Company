@@ -13,18 +13,18 @@ const fadeInUp = {
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-16">
+    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-16 bg-black ">
       {/* Background image */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        className="absolute inset-0 w-full h-full bg-no-repeat bg-center bg-contain mt-4"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80')",
+            "url('https://ibranatarentcar.com/wp-content/uploads/2023/08/Banner-Ibranata-Rental-Mobil-Medan.png')",
         }}
       ></div>
 
       {/* Overlay hitam */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Konten hero */}
       <motion.div

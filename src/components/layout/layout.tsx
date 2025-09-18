@@ -1,6 +1,6 @@
 import NavbarComponent from "../navbar/NavbarComponent";
 import FooterComponent from "../navbar/FooterComponent";
-import WhatsappButton from "../button/WhatsappButton";
+// import WhatsappButton from "../button/WhatsappButton";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-grow ">{children}</main>
 
       {/* WhatsApp floating button */}
-      <WhatsappButton />
+      {/* <WhatsappButton /> */}
 
       {/* Footer */}
       <FooterComponent />

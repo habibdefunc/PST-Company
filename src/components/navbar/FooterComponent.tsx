@@ -29,10 +29,14 @@ export default function FooterComponent() {
         <div>
           <h3 className="text-lg font-semibold mb-3">Navigasi</h3>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li className="hover:text-yellow-500 cursor-pointer">Home</li>
+            <li className="hover:text-yellow-500 cursor-pointer">Beranda</li>
             <li className="hover:text-yellow-500 cursor-pointer">Layanan</li>
-            <li className="hover:text-yellow-500 cursor-pointer">About Us</li>
-            <li className="hover:text-yellow-500 cursor-pointer">Contact</li>
+            <li className="hover:text-yellow-500 cursor-pointer">
+              Tentang Kami
+            </li>
+            <li className="hover:text-yellow-500 cursor-pointer">
+              Kontak Kami
+            </li>
           </ul>
         </div>
 
@@ -40,9 +44,36 @@ export default function FooterComponent() {
         <div>
           <h3 className="text-lg font-semibold mb-3">Kontak</h3>
           <ul className="text-sm text-gray-300 space-y-2">
-            <li>Email: pesonasumuttrans@gmail.com</li>
-            <li>Telepon: +62 xxx xxxx xxxx</li>
-            <li>Alamat: Medan, Sumatera Utara</li>
+            <li>
+              <a
+                href="mailto:pesonasumuttrans@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-500 transition"
+              >
+                Email: pesonasumuttrans@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/6282277763288"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-500 transition"
+              >
+                Telepon: +62 822 7776 3288
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Komplek+Citra+Wisata+Blok+X+No.49"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-500 transition"
+              >
+                Alamat: Komplek Citra Wisata Blok X No.49
+              </a>
+            </li>
           </ul>
         </div>
       </div>

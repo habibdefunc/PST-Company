@@ -1,87 +1,161 @@
 "use client";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 import Card from "../../lib/card";
 import SectionTitle from "../../lib/sectionTitle";
 import Button from "../../lib/button";
 
+// Variants animasi fade + slide
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1 },
+    transition: { duration: 0.6, delay: i * 0.2 },
   }),
+  exit: { opacity: 0, y: -40, transition: { duration: 0.4 } },
 };
 
-const services = [
+// Data mobil
+const cars = [
   {
-    title: "Sewa Mobil",
-    desc: "Nikmati perjalanan dengan mobil nyaman dan terawat.",
-    price: "Rp 500.000 / Hari",
-    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+    title: "Honda Brio",
+    img: "https://asset.honda-indonesia.com/variants/images/VmfueMMOko09BwpogWPFmBUShLbLDzik4wPP6AFz.png",
   },
   {
-    title: "Travel",
-    desc: "Perjalanan antar kota dengan pelayanan terbaik.",
-    price: "Rp 150.000 / Orang",
-    img: "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=800&q=80",
+    title: "Honda BRV",
+    img: "https://hondamugen.com/wp-content/uploads/2023/05/KPIBvWJbbNKa4eT7TDcULKELJ6PoRJY12AxVS8xo.png",
   },
   {
-    title: "Tour Wisata",
-    desc: "Jelajahi destinasi terbaik di Sumatera Utara.",
-    price: "Mulai Rp 1.000.000",
-    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
+    title: "Toyota Hiace",
+    img: "https://d1g6w7sntckt92.cloudfront.net/public/images/car_variant_image/minUOt2tB4tuRkmCZymX5yZcFWqx7V9lDcp37Vxk.png",
+  },
+  {
+    title: "Toyota Innova Reborn",
+    img: "https://ibranatarentcar.com/wp-content/uploads/2023/08/rental-toyota-innova-reborn-black-medan-1.png",
+  },
+  {
+    title: "Toyota Avanza",
+    img: "https://d1g6w7sntckt92.cloudfront.net/public/images/color_option_images/WUVzJ6SF1F4NaGwN51BOxDvdKLBkjhyFnLuRuPJS.png",
+  },
+  {
+    title: "Daihatsu Xenia",
+    img: "https://cms-2023.daihatsu.co.id/cdn-cgi/image/w=600,q=85/assets/1636640842341.png",
+  },
+  {
+    title: "Medium Bus",
+    img: "https://ibranatarentcar.com/wp-content/uploads/2023/08/medium-bus.png",
+  },
+  {
+    title: "Isuzu Elf",
+    img: "https://ibranatarentcar.com/wp-content/uploads/2023/08/rental-mobil-isuzu-elf-medan-1.png",
+  },
+  {
+    title: "Mitsubishi Xpander",
+    img: "https://ibranatarentcar.com/wp-content/uploads/2023/08/Sewa-rental-xpander-cros-medan.png",
+  },
+  {
+    title: "Pajero Sport",
+    img: "https://ibranatarentcar.com/wp-content/uploads/2023/08/pajero-sport-black-1.webp",
+  },
+  {
+    title: "Toyota Fortuner",
+    img: "https://d1g6w7sntckt92.cloudfront.net/public/images/car_variant_image/AkUHXaniRDfdW0DMh3xYjAEtMGIypIGHQdrt81u1.png",
   },
 ];
 
 export default function ServicesSection() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 3) % cars.length);
+    }, 180000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const visibleCars =
+    index + 3 <= cars.length
+      ? cars.slice(index, index + 3)
+      : [...cars.slice(index), ...cars.slice(0, (index + 3) % cars.length)];
+
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      variants={fadeInUp}
       viewport={{ once: false, amount: 0.3 }}
-      className="relative py-10 px-4 md:py-16 md:px-16 bg-white text-center"
+      className="relative py-10 px-4 md:py-16 md:px-16 bg-white text-center overflow-hidden"
     >
-      <SectionTitle>Layanan Kami</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        {services.map((s, i) => (
-          <motion.div
-            key={i}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-          >
-            <Card className="flex flex-col">
-              <img
-                src={s.img}
-                alt={s.title}
-                className="h-48 md:h-56 w-full object-cover"
-              />
-              <div className="p-4 md:p-6 flex-1 flex flex-col">
-                <h3 className="text-xl md:text-xl font-semibold mb-2">
-                  {s.title}
-                </h3>
-                <p className="text-gray-600 text-base md:text-base mb-2">
-                  {s.desc}
-                </p>
-                <p className="text-yellow-600 font-bold mb-3">{s.price}</p>
-                <Button
-                  href="https://wa.me/6281234567890"
-                  target="_blank"
-                  className="mt-auto text-base md:text-base"
-                >
-                  Pesan Sekarang
-                </Button>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
+      {/* Judul */}
+      <motion.div
+        custom={0}
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+      >
+        <SectionTitle>Unit Kami</SectionTitle>
+      </motion.div>
+
+      {/* Grid Card */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        <AnimatePresence mode="wait">
+          {visibleCars.map((car, i) => (
+            <motion.div
+              key={car.title + index}
+              custom={i}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              exit="exit"
+              className="flex"
+            >
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                className="w-full"
+              >
+                <Card className="flex flex-col h-full shadow-md hover:shadow-xl transition-shadow duration-300">
+                  {/* Gambar */}
+                  <div className="w-full h-56 md:h-64 flex items-center justify-center overflow-hidden">
+                    <motion.img
+                      src={car.img}
+                      alt={car.title}
+                      className="w-full h-full object-contain"
+                      whileHover={{ scale: 1.1, rotate: 2 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15,
+                      }}
+                    />
+                  </div>
+                  {/* Judul + Tombol */}
+                  <div className="p-4 md:p-6 flex-1 flex flex-col justify-between">
+                    <h3 className="text-xl md:text-xl font-semibold mb-4">
+                      {car.title}
+                    </h3>
+                    <Button
+                      href="https://wa.me/+6282277763288"
+                      target="_blank"
+                      className="flex items-center justify-center gap-2 text-base md:text-base bg-green-500 hover:bg-green-600 text-white"
+                    >
+                      <FaWhatsapp size={18} /> Pesan Sekarang
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
+
+      {/* Link bawah */}
       <div className="mt-6 text-center">
         <a
-          href="/layanan-kami"
+          href="/unit-kami"
           className="text-yellow-500 hover:underline text-lg md:text-md"
         >
           Lihat Selengkapnya &rarr;

@@ -12,7 +12,7 @@ import ContactSection from "./ContactSection";
 
 export default function HomeComponent() {
   return (
-    <div className="font-poppins relative  w-full">
+    <div className="font-poppins relative  w-full ">
       <HeroSection />
       <ServicesSection />
       <ReasonsSection />
