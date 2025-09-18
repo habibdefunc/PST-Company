@@ -10,7 +10,7 @@ interface CarCardProps {
 }
 
 // Animasi fade in up
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
