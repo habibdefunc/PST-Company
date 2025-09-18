@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import Card from "../../lib/card";
 import type { Car } from "./types";
