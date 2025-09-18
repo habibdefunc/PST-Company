@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-// import Layanan from "../pages/Layanan";
 // import About from "../pages/About";
 // import Contact from "../pages/Contact";
 import Layout from "../components/layout/layout";
+import Service from "../pages/Service";
 
 export default function AppRouter() {
   return (
@@ -16,15 +16,15 @@ export default function AppRouter() {
           </Layout>
         }
       />
-      {/*
       <Route
-        path="/layanan-kami"
+        path="/unit-kami"
         element={
           <Layout>
-            <Layanan />
+            <Service />
           </Layout>
         }
       />
+      {/*
       <Route
         path="/tentang-kami"
         element={

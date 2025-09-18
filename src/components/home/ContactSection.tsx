@@ -4,6 +4,7 @@ import SectionTitle from "../../lib/sectionTitle";
 import Card from "../../lib/card";
 import WaveTop from "../../lib/waveTop";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -67,12 +68,12 @@ export default function ContactSection() {
         ))}
       </div>
       <div className="mt-6 text-center">
-        <a
-          href="/kontak-kami"
+        <NavLink
+          to="/kontak-kami"
           className="text-yellow-500 hover:underline text-base md:text-md"
         >
           Lihat Selengkapnya &rarr;
-        </a>
+        </NavLink>
       </div>
     </motion.section>
   );
