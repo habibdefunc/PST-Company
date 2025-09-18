@@ -1,44 +1,26 @@
 import "@fontsource/raleway/400.css";
 import "@fontsource/raleway/600.css";
 import "@fontsource/raleway/700.css";
-import logo from "../../assets/img/logo.jpeg";
+import FooterLogo from "./FooterLogo";
+import FooterNav from "./FooterNav";
 
 export default function FooterComponent() {
+  const company = {
+    name: "PESONA SUMUT TRANS",
+    email: "pesonasumuttrans@gmail.com",
+    phone: "+6282277763288",
+    address:
+      "Komplek Citra Wisata Blok X No.49 Kec. Medan Johor, Kota Medan, Sumatera Utara.",
+  };
+
   return (
     <footer className="bg-gray-900 text-white font-['Raleway']">
       <div className="container mx-auto px-4 py-10 md:py-14 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Logo + Deskripsi */}
-        <div>
-          <div className="flex items-center gap-3 mb-3">
-            <img
-              src={logo}
-              alt="logo"
-              className="h-10 w-10 md:h-12 md:w-12 object-contain rounded-lg shadow-sm"
-            />
-            <h2 className="text-xl md:text-2xl font-bold tracking-wide">
-              PESONA SUMUT <span className="text-yellow-500">TRANS</span>
-            </h2>
-          </div>
-          <p className="text-sm text-gray-400 mt-2">
-            Layanan transportasi yang aman, nyaman, dan terpercaya untuk
-            perjalanan Anda.
-          </p>
-        </div>
+        {/* Logo & Deskripsi */}
+        <FooterLogo />
 
         {/* Navigasi */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Navigasi</h3>
-          <ul className="space-y-2 text-sm text-gray-300">
-            <li className="hover:text-yellow-500 cursor-pointer">Beranda</li>
-            <li className="hover:text-yellow-500 cursor-pointer">Layanan</li>
-            <li className="hover:text-yellow-500 cursor-pointer">
-              Tentang Kami
-            </li>
-            <li className="hover:text-yellow-500 cursor-pointer">
-              Kontak Kami
-            </li>
-          </ul>
-        </div>
+        <FooterNav />
 
         {/* Kontak */}
         <div>
@@ -46,32 +28,34 @@ export default function FooterComponent() {
           <ul className="text-sm text-gray-300 space-y-2">
             <li>
               <a
-                href="mailto:pesonasumuttrans@gmail.com"
+                href={`mailto:${company.email}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-yellow-500 transition"
               >
-                Email: pesonasumuttrans@gmail.com
+                Email: {company.email}
               </a>
             </li>
             <li>
               <a
-                href="https://wa.me/6282277763288"
+                href={`https://wa.me/${company.phone.replace(/\D/g, "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-yellow-500 transition"
               >
-                Telepon: +62 822 7776 3288
+                Telepon: {company.phone}
               </a>
             </li>
             <li>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Komplek+Citra+Wisata+Blok+X+No.49"
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  company.address
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-yellow-500 transition"
               >
-                Alamat: Komplek Citra Wisata Blok X No.49
+                Alamat: {company.address}
               </a>
             </li>
           </ul>
@@ -80,7 +64,7 @@ export default function FooterComponent() {
 
       {/* Copyright */}
       <div className="border-t border-gray-700 text-center py-4 text-sm text-gray-400">
-        © {new Date().getFullYear()} PESONA SUMUT TRANS. All rights reserved.
+        © {new Date().getFullYear()} {company.name}. All rights reserved.
       </div>
     </footer>
   );

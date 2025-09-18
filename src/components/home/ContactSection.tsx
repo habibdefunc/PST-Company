@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import SectionTitle from "../../lib/sectionTitle";
 import Card from "../../lib/card";
@@ -44,6 +45,7 @@ export default function ContactSection() {
     >
       <WaveTop />
       <SectionTitle>Kontak Kami</SectionTitle>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
         {contacts.map((c, i) => (
           <motion.div
@@ -53,7 +55,7 @@ export default function ContactSection() {
             whileInView="visible"
             variants={fadeInUp}
           >
-            <Card className="flex flex-col items-center justify-center p-6 min-h-[180px]">
+            <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
               <c.icon className="w-8 h-8 text-yellow-500 mb-3" />
               <a
                 href={c.link}
@@ -67,6 +69,7 @@ export default function ContactSection() {
           </motion.div>
         ))}
       </div>
+
       <div className="mt-6 text-center">
         <NavLink
           to="/kontak-kami"

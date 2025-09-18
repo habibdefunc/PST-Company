@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import { HiArrowRight } from "react-icons/hi";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -44,12 +46,13 @@ export default function HeroSection() {
           dan terpercaya untuk perjalanan Anda.
         </p>
 
-        <a
-          href="/layanan-kami"
-          className="inline-block px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow hover:bg-yellow-600 transition text-base sm:text-lg md:text-xl"
+        <NavLink
+          to="/unit-kami"
+          className="inline-flex items-center gap-2 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow hover:bg-yellow-600 transition text-base sm:text-lg md:text-xl"
         >
           Mulai Sekarang
-        </a>
+          <HiArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+        </NavLink>
       </motion.div>
     </section>
   );
