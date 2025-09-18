@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import Layout from "../components/layout/layout";
 import Service from "../pages/Service";
+import NotFoundPage from "../pages/NotFound";
 
 export default function AppRouter() {
   return (
@@ -28,6 +29,14 @@ export default function AppRouter() {
         element={
           <Layout>
             <Contact />
+          </Layout>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <Layout>
+            <NotFoundPage />
           </Layout>
         }
       />
