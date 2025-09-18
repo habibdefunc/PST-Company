@@ -10,7 +10,6 @@ import Hamburger from "./Hamburger";
 
 export default function NavbarComponent() {
   const [open, setOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState("Home");
 
   return (
     <nav className="bg-white shadow-md fixed w-full top-0 z-50 font-['Raleway']">
@@ -18,7 +17,7 @@ export default function NavbarComponent() {
         {/* LEFT (Logo + DesktopMenu, center di desktop) */}
         <div className="hidden md:flex items-center gap-10 mx-auto">
           <Logo />
-          <DesktopMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+          <DesktopMenu />
         </div>
 
         {/* Mobile layout (Logo kiri, Hamburger kanan) */}
