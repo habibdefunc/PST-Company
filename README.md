@@ -36,8 +36,8 @@ Website ini berfungsi sebagai **profil digital perusahaan** untuk memperkenalkan
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/username/pesona-sumut-travel.git
-cd pesona-sumut-travel
+git clone https://github.com/habibdefunc/PST-Company.git
+cd PST-Company
 npm install
 npm run dev
 ```
