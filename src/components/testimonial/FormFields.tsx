@@ -53,6 +53,7 @@ export default function FormFields({
             onChange={(e) => handleChange("name", e.target.value)}
             placeholder="Nama"
             className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
           />
         </div>
       )}
@@ -72,6 +73,7 @@ export default function FormFields({
           onChange={(e) => handleChange("email", e.target.value)}
           placeholder="Email"
           className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          required
         />
       </div>
 
@@ -90,6 +92,7 @@ export default function FormFields({
           onChange={(e) => handleChange("city", e.target.value)}
           placeholder="Kota"
           className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          required
         />
       </div>
 
@@ -108,6 +111,7 @@ export default function FormFields({
           placeholder="Komentar"
           className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
           rows={5}
+          required
         />
       </div>
     </div>

@@ -39,10 +39,14 @@ type Testimonial = {
 export default function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
+  // FETCH DATA SAAT PAGE LOAD
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await axios.get("/api/testimonial"); // Proxy ke Apps Script
+        const res = await axios.get(
+          "https://script.google.com/macros/s/AKfycbwyBAtnE70lBHXYj0bm3aAACPTpcZIEbEGsOMHvxO_YiAhvDb-sEN1tbSd8hZt8cSVXhQ/exec"
+        );
+
         const dataArray: TestimonialRow[] = Array.isArray(res.data)
           ? res.data
           : Array.isArray(res.data.data)
@@ -57,8 +61,6 @@ export default function TestimonialsSection() {
           rating: Number(row.Rating) || 0,
         }));
 
-        console.log("Mapped testimonials:", mapped); // cek di console
-
         setTestimonials(mapped);
       } catch (err) {
         console.error("Error fetching testimonials:", err);
@@ -72,7 +74,7 @@ export default function TestimonialsSection() {
   return (
     <motion.section
       initial="hidden"
-      whileInView="visible"
+      whileInView="visible" // animasi tetap on scroll
       variants={fadeInUp}
       viewport={{ once: false, amount: 0.2 }}
       className="relative py-16 px-6 md:px-16 bg-white text-center overflow-hidden"
@@ -87,7 +89,7 @@ export default function TestimonialsSection() {
           modules={[Navigation, Pagination, Autoplay]}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop
           spaceBetween={20}
           slidesPerView={1}
@@ -98,6 +100,7 @@ export default function TestimonialsSection() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.6 }}
                 className="bg-gray-50 mx-2 md:mx-4 p-6 md:p-8 rounded-xl shadow flex flex-col items-center"
               >
@@ -119,6 +122,22 @@ export default function TestimonialsSection() {
               </motion.div>
             </SwiperSlide>
           ))}
+
+          <style>
+            {`
+              .swiper-button-next,
+              .swiper-button-prev {
+                color: #f59e0b; /* Tailwind yellow-500 */
+              }
+              .swiper-pagination-bullet {
+                background-color: #f59e0b; /* Bulat default kuning */
+                opacity: 0.5;
+              }
+              .swiper-pagination-bullet-active {
+                opacity: 1;
+              }
+            `}
+          </style>
         </Swiper>
       )}
 
