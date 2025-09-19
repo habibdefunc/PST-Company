@@ -1,6 +1,4 @@
-import type { Car } from "./types";
-
-export const cars: Car[] = [
+export const cars = [
   {
     title: "Honda Brio",
     img: "https://asset.honda-indonesia.com/variants/images/VmfueMMOko09BwpogWPFmBUShLbLDzik4wPP6AFz.png",

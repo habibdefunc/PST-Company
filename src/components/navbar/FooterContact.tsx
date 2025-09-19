@@ -1,48 +1,93 @@
-const company = {
-  email: "pesonasumuttrans@gmail.com",
-  phone: "+6282277763288",
-  address:
-    "Komplek Citra Wisata Blok X No.49 Kec. Medan Johor, Kota Medan, Sumatera Utara.",
-};
+"use client";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaInstagram,
+  FaTiktok,
+  FaFacebook,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { company } from "../contact/company";
 
 export default function FooterContact() {
   return (
     <div>
       <h3 className="text-lg font-semibold mb-3">Kontak</h3>
-      <ul className="text-sm text-gray-300 space-y-2">
-        <li>
+
+      {/* List kontak */}
+      <ul className="text-sm text-gray-300 space-y-3">
+        <li className="flex items-center gap-2">
+          <FaEnvelope className="text-yellow-500 w-5 h-5" />
           <a
             href={`mailto:${company.email}`}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-yellow-500 transition"
           >
-            Email: {company.email}
+            {company.email}
           </a>
         </li>
-        <li>
+        <li className="flex items-center gap-2">
+          <FaPhone className="text-yellow-500 w-5 h-5" />
           <a
-            href={`https://wa.me/${company.phone.replace(/\D/g, "")}`}
+            href={`tel:${company.phone.replace(/\D/g, "")}`}
+            className="hover:text-yellow-500 transition"
+          >
+            {company.phone}
+          </a>
+        </li>
+        <li className="flex items-center gap-2">
+          <FaWhatsapp className="text-yellow-500 w-5 h-5" />
+          <a
+            href={`https://wa.me/${company.wa.replace(/\D/g, "")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-yellow-500 transition"
           >
-            Telepon: {company.phone}
+            {company.wa}
           </a>
         </li>
-        <li>
+        <li className="flex items-start gap-2">
+          <FaMapMarkerAlt className="text-yellow-500 w-5 h-5 mt-1 flex-shrink-0" />
           <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-              company.address
-            )}`}
+            href={company.mapLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-yellow-500 transition"
+            className="hover:text-yellow-500 transition leading-relaxed"
           >
-            Alamat: {company.address}
+            {company.address}
           </a>
         </li>
       </ul>
+
+      {/* Sosial Media */}
+      <div className="flex gap-5 mt-4">
+        <a
+          href={company.ig}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-yellow-500 hover:scale-110 transition-transform"
+        >
+          <FaInstagram className="w-5 h-5" />
+        </a>
+        <a
+          href={company.tiktok}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-yellow-500 hover:scale-110 transition-transform"
+        >
+          <FaTiktok className="w-5 h-5" />
+        </a>
+        <a
+          href={company.fb}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-yellow-500 hover:scale-110 transition-transform"
+        >
+          <FaFacebook className="w-5 h-5" />
+        </a>
+      </div>
     </div>
   );
 }

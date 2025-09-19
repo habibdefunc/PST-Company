@@ -7,7 +7,6 @@ import SectionTitle from "../../lib/sectionTitle";
 import Button from "../../lib/button";
 import { NavLink } from "react-router-dom";
 import { cars } from "../service/cars";
-import type { Car } from "../service/types";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -29,7 +28,8 @@ export default function ServicesSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const visibleCars: Car[] =
+  // ambil 3 mobil yang sedang aktif
+  const visibleCars =
     index + 3 <= cars.length
       ? cars.slice(index, index + 3)
       : [...cars.slice(index), ...cars.slice(0, (index + 3) % cars.length)];

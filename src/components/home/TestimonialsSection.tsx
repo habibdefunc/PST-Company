@@ -40,7 +40,6 @@ const testimonials = [
   },
 ];
 
-// Generate rating 3–5 acak
 const getRandomRating = () => Math.floor(Math.random() * 3) + 3;
 
 export default function TestimonialsSection() {

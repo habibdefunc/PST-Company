@@ -1,5 +1,13 @@
 "use client";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaInstagram,
+  FaTiktok,
+  FaFacebook,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { company } from "./company";
@@ -29,8 +37,9 @@ export default function ContactInfo({ custom = 0 }: ContactInfoProps) {
     >
       <h3 className="text-lg font-semibold text-gray-700">{company.name}</h3>
 
+      {/* Phone */}
       <div className="flex items-center gap-4">
-        <FaPhone className="text-yellow-500 w-5 h-5" />
+        <FaPhone className="text-yellow-500 w-6 h-6" />
         <a
           href={`tel:${company.phone}`}
           className="text-gray-600 hover:text-yellow-500 transition"
@@ -39,8 +48,22 @@ export default function ContactInfo({ custom = 0 }: ContactInfoProps) {
         </a>
       </div>
 
+      {/* WhatsApp */}
       <div className="flex items-center gap-4">
-        <FaEnvelope className="text-yellow-500 w-5 h-5" />
+        <FaWhatsapp className="text-yellow-500 w-6 h-6" />
+        <a
+          href={`https://wa.me/${company.wa.replace(/\D/g, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-600 hover:text-yellow-500 transition"
+        >
+          {company.wa}
+        </a>
+      </div>
+
+      {/* Email */}
+      <div className="flex items-center gap-4">
+        <FaEnvelope className="text-yellow-500 w-6 h-6" />
         <a
           href={`mailto:${company.email}`}
           className="text-gray-600 hover:text-yellow-500 transition"
@@ -49,15 +72,46 @@ export default function ContactInfo({ custom = 0 }: ContactInfoProps) {
         </a>
       </div>
 
-      <div className="flex items-start gap-4">
-        <FaMapMarkerAlt className="text-yellow-500 w-5 h-5 mt-1" />
+      {/* Address */}
+      <div className="flex gap-4">
+        <FaMapMarkerAlt className="text-yellow-500 w-6 h-6 flex-shrink-0" />
         <a
           href={company.mapLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 hover:text-yellow-500 transition"
+          className="text-gray-600 hover:text-yellow-500 transition leading-relaxed"
         >
           {company.address}
+        </a>
+      </div>
+
+      {/* Social Media Icons */}
+      <div className="flex gap-5 mt-4">
+        <a
+          href={company.ig}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-yellow-500 hover:scale-110 transition-transform"
+        >
+          <FaInstagram className="w-6 h-6" />
+        </a>
+
+        <a
+          href={company.tiktok || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-yellow-500 hover:scale-110 transition-transform"
+        >
+          <FaTiktok className="w-6 h-6" />
+        </a>
+
+        <a
+          href={company.fb}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-yellow-500 hover:scale-110 transition-transform"
+        >
+          <FaFacebook className="w-6 h-6" />
         </a>
       </div>
     </motion.div>

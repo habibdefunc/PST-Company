@@ -1,6 +1,10 @@
 export const company = {
   name: "PT. PESONA SUMUT TRANS",
-  phone: "+6282277763288",
+  phone: "(061) 66477318",
+  wa: "+62 822 7776 3288",
+  ig: "https://www.instagram.com/pesonasumuttrans2025/",
+  tiktok: "",
+  fb: "https://www.facebook.com/pesonsumuttranss",
   email: "pesonasumuttrans@gmail.com",
   address:
     "Komplek Citra Wisata Blok X No.49 Kec. Medan Johor, Kota Medan, Sumatera Utara.",

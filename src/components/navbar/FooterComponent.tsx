@@ -3,6 +3,7 @@ import "@fontsource/raleway/600.css";
 import "@fontsource/raleway/700.css";
 import FooterLogo from "./FooterLogo";
 import FooterNav from "./FooterNav";
+import FooterContact from "./FooterContact";
 
 export default function FooterComponent() {
   const company = {
@@ -23,43 +24,7 @@ export default function FooterComponent() {
         <FooterNav />
 
         {/* Kontak */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Kontak</h3>
-          <ul className="text-sm text-gray-300 space-y-2">
-            <li>
-              <a
-                href={`mailto:${company.email}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-500 transition"
-              >
-                Email: {company.email}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`https://wa.me/${company.phone.replace(/\D/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-500 transition"
-              >
-                Telepon: {company.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  company.address
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-500 transition"
-              >
-                Alamat: {company.address}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <FooterContact />
       </div>
 
       {/* Copyright */}

@@ -6,6 +6,7 @@ import Card from "../../lib/card";
 import WaveTop from "../../lib/waveTop";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { company } from "../contact/company";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -15,24 +16,6 @@ const fadeInUp = {
     transition: { duration: 0.6, delay: i * 0.1 },
   }),
 };
-
-const contacts = [
-  {
-    icon: Mail,
-    text: "pesonasumuttrans@gmail.com",
-    link: "mailto:pesonasumuttrans@gmail.com",
-  },
-  {
-    icon: Phone,
-    text: "+62 822 7776 3288",
-    link: "https://wa.me/6282277763288",
-  },
-  {
-    icon: MapPin,
-    text: "Komplek Citra Wisata Blok X No.49",
-    link: "https://www.google.com/maps/search/?api=1&query=Komplek+Citra+Wisata+Blok+X+No.49",
-  },
-];
 
 export default function ContactSection() {
   return (
@@ -47,27 +30,50 @@ export default function ContactSection() {
       <SectionTitle>Kontak Kami</SectionTitle>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
-        {contacts.map((c, i) => (
-          <motion.div
-            key={i}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-          >
-            <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
-              <c.icon className="w-8 h-8 text-yellow-500 mb-3" />
-              <a
-                href={c.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 text-sm md:text-base hover:text-yellow-500 transition-colors text-center"
-              >
-                {c.text}
-              </a>
-            </Card>
-          </motion.div>
-        ))}
+        {/* Email */}
+        <motion.div custom={0} variants={fadeInUp}>
+          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
+            <Mail className="w-8 h-8 text-yellow-500 mb-3" />
+            <a
+              href={`mailto:${company.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 text-sm md:text-base hover:text-yellow-500 transition-colors text-center"
+            >
+              {company.email}
+            </a>
+          </Card>
+        </motion.div>
+
+        {/* Phone */}
+        <motion.div custom={1} variants={fadeInUp}>
+          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
+            <Phone className="w-8 h-8 text-yellow-500 mb-3" />
+            <a
+              href={`tel:${company.phone.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 text-sm md:text-base hover:text-yellow-500 transition-colors text-center"
+            >
+              {company.phone}
+            </a>
+          </Card>
+        </motion.div>
+
+        {/* Address */}
+        <motion.div custom={2} variants={fadeInUp}>
+          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
+            <MapPin className="w-8 h-8 text-yellow-500 mb-3" />
+            <a
+              href={company.mapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 text-sm md:text-base hover:text-yellow-500 transition-colors text-center"
+            >
+              {company.address}
+            </a>
+          </Card>
+        </motion.div>
       </div>
 
       <div className="mt-6 text-center">
