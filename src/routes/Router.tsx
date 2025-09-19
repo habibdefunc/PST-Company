@@ -4,6 +4,7 @@ import Contact from "../pages/Contact";
 import Layout from "../components/layout/layout";
 import Service from "../pages/Service";
 import NotFoundPage from "../pages/NotFound";
+import Testimonial from "../pages/Testimonial";
 
 export default function AppRouter() {
   return (
@@ -29,6 +30,14 @@ export default function AppRouter() {
         element={
           <Layout>
             <Contact />
+          </Layout>
+        }
+      />
+      <Route
+        path="/rating-kami"
+        element={
+          <Layout>
+            <Testimonial />
           </Layout>
         }
       />
