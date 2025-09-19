@@ -5,7 +5,7 @@ export const company = {
   ig: "https://www.instagram.com/pesonasumuttrans2025/",
   tiktok: "https://www.tiktok.com/@pesonasumuttrans2025?_t=ZS-8zr6tdKMNTr&_r=1",
   fb: "https://www.facebook.com/share/164VpVjFhD/",
-  email: "pesonasumuttrans@gmail.com",
+  email: "order@pesonasumuttrans.com",
   address:
     "Komplek Citra Wisata Blok X No.49 Kec. Medan Johor, Kota Medan, Sumatera Utara.",
   mapLink:
