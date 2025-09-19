@@ -1,5 +1,8 @@
 "use client";
 
+import React from "react";
+import { motion } from "framer-motion";
+
 type FormData = {
   name: string;
   isAnonymous: boolean;
@@ -14,106 +17,81 @@ type FormFieldsProps = {
   handleChange: (field: keyof FormData, value: string | boolean) => void;
 };
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
+
 export default function FormFields({
   formData,
   handleChange,
 }: FormFieldsProps) {
   return (
-    <div className="space-y-6">
-      {/* Checkbox Anonymous */}
-      <div className="flex items-center gap-3">
+    <motion.div
+      className="flex flex-col gap-4"
+      initial="hidden"
+      animate="visible"
+      variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+    >
+      {/* Checkbox di atas */}
+      <motion.label
+        variants={itemVariants}
+        className="flex items-center gap-2 text-gray-700"
+      >
         <input
           type="checkbox"
           checked={formData.isAnonymous}
           onChange={(e) => handleChange("isAnonymous", e.target.checked)}
-          id="anonymous"
-          className="w-4 h-4 accent-yellow-500"
+          className="w-5 h-5 accent-yellow-500"
         />
-        <label
-          htmlFor="anonymous"
-          className="text-sm md:text-base text-gray-700"
-        >
-          Kirim sebagai Anonymous
-        </label>
-      </div>
+        Kirim sebagai Anonymous
+      </motion.label>
 
       {/* Nama */}
       {!formData.isAnonymous && (
-        <div className="flex flex-col">
-          <label
-            htmlFor="name"
-            className="text-sm md:text-base font-medium text-gray-700 mb-1"
-          >
-            Nama
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={formData.name}
-            onChange={(e) => handleChange("name", e.target.value)}
-            placeholder="Nama"
-            className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            required
-          />
-        </div>
+        <motion.input
+          type="text"
+          placeholder="Nama Lengkap"
+          value={formData.name}
+          onChange={(e) => handleChange("name", e.target.value)}
+          required
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          variants={itemVariants}
+        />
       )}
 
       {/* Email */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="email"
-          className="text-sm md:text-base font-medium text-gray-700 mb-1"
-        >
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          value={formData.email}
-          onChange={(e) => handleChange("email", e.target.value)}
-          placeholder="Email"
-          className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          required
-        />
-      </div>
+      <motion.input
+        type="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={(e) => handleChange("email", e.target.value)}
+        required
+        className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        variants={itemVariants}
+      />
 
       {/* Kota */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="city"
-          className="text-sm md:text-base font-medium text-gray-700 mb-1"
-        >
-          Kota
-        </label>
-        <input
-          type="text"
-          id="city"
-          value={formData.city}
-          onChange={(e) => handleChange("city", e.target.value)}
-          placeholder="Kota"
-          className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          required
-        />
-      </div>
+      <motion.input
+        type="text"
+        placeholder="Kota"
+        value={formData.city}
+        onChange={(e) => handleChange("city", e.target.value)}
+        required
+        className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        variants={itemVariants}
+      />
 
       {/* Komentar */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="comment"
-          className="text-sm md:text-base font-medium text-gray-700 mb-1"
-        >
-          Komentar
-        </label>
-        <textarea
-          id="comment"
-          value={formData.comment}
-          onChange={(e) => handleChange("comment", e.target.value)}
-          placeholder="Komentar"
-          className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          rows={5}
-          required
-        />
-      </div>
-    </div>
+      <motion.textarea
+        placeholder="Tulis komentar..."
+        value={formData.comment}
+        onChange={(e) => handleChange("comment", e.target.value)}
+        rows={4}
+        required
+        className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none"
+        variants={itemVariants}
+      />
+    </motion.div>
   );
 }

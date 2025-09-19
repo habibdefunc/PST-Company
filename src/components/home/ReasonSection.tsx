@@ -33,7 +33,9 @@ export default function ReasonsSection() {
       className="relative py-16 px-6 md:px-16 bg-white text-center overflow-hidden"
     >
       <WaveTop />
-      <SectionTitle>Kenapa Pilih Kami?</SectionTitle>
+      <SectionTitle>
+        Kenapa <span className="text-yellow-500">Pilih Kami?</span>
+      </SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
         {reasons.map((r, i) => (
           <motion.div

@@ -27,7 +27,9 @@ export default function ContactSection() {
       className="relative py-16 px-6 md:px-16 bg-white text-center overflow-hidden"
     >
       <WaveTop />
-      <SectionTitle>Kontak Kami</SectionTitle>
+      <SectionTitle>
+        Kontak <span className="text-yellow-500">Kami</span>
+      </SectionTitle>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
         {/* Email */}

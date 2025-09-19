@@ -26,7 +26,7 @@ export default function ContactComponent() {
         className="text-center mb-8"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-          Kontak Kami
+          Kontak <span className="text-yellow-500">Kami</span>
         </h2>
         <p className="text-gray-500 mt-2 text-sm md:text-base max-w-xl mx-auto">
           Hubungi kami jika Anda memiliki pertanyaan atau ingin mengetahui lebih

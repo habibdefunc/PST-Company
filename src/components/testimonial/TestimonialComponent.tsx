@@ -3,6 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import FormFields from "./FormFields";
 import RatingStars from "./RatingStars";
 import SuccessMessage from "./SuccessMessage";
@@ -14,6 +15,11 @@ type FormData = {
   city: string;
   comment: string;
   rating: number;
+};
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function TestimonialComponent() {
@@ -35,18 +41,14 @@ export default function TestimonialComponent() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validasi rating
     if (formData.rating === 0) {
-      setShowRatingError(true); // tampilkan error
-      return; // jangan lanjut submit
+      setShowRatingError(true);
+      return;
     }
-
-    // reset error
     setShowRatingError(false);
 
     try {
       setIsSubmitting(true);
-
       const payload = new FormData();
       payload.append(
         "name",
@@ -73,6 +75,7 @@ export default function TestimonialComponent() {
       setIsSubmitting(false);
     }
   };
+
   const handleChange = <K extends keyof FormData>(
     field: K,
     value: FormData[K]
@@ -89,13 +92,21 @@ export default function TestimonialComponent() {
       comment: "",
       rating: 0,
     });
+    setShowRatingError(false);
   };
 
   return (
     <section className="py-12 px-4 md:px-8 lg:px-16 bg-white font-[Poppins]">
-      <div className="mt-15 max-w-2xl mx-auto bg-gray-100 rounded-2xl shadow-xl p-6 md:p-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
-          Testimonial Kami
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={containerVariants}
+        className="mt-15 max-w-2xl mx-auto bg-gray-50 rounded-3xl shadow-xl p-6 md:p-10"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+          Rating <span className="text-yellow-500">Kami</span>
         </h2>
         <p className="text-sm md:text-base text-gray-600 text-center mb-6">
           Berikan pengalamanmu agar kami bisa terus meningkatkan layanan.
@@ -111,15 +122,24 @@ export default function TestimonialComponent() {
               rating={formData.rating}
               setRating={(r: number) => {
                 handleChange("rating", r);
-                setShowRatingError(false); // hilangkan error saat user pilih rating
+                setShowRatingError(false);
               }}
               showError={showRatingError}
             />
-            <div className="flex gap-4">
+            {showRatingError && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-red-500 text-sm"
+              >
+                Rating wajib diisi!
+              </motion.p>
+            )}
+            <div className="flex flex-col md:flex-row gap-4">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-lg shadow-md transition"
+                className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-xl shadow-md transition"
               >
                 {isSubmitting ? "Mengirim..." : "Kirim Testimoni"}
               </button>
@@ -127,13 +147,14 @@ export default function TestimonialComponent() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-3 rounded-lg shadow-md transition"
+                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-xl shadow-md transition"
               >
                 Reset
               </button>
             </div>
           </form>
         )}
+
         <div className="mt-6 text-center">
           <NavLink
             to="/"
@@ -142,7 +163,7 @@ export default function TestimonialComponent() {
             Kembali Ke Beranda &rarr;
           </NavLink>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

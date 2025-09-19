@@ -48,7 +48,9 @@ export default function ServicesSection() {
         initial="hidden"
         whileInView="visible"
       >
-        <SectionTitle>Unit Kami</SectionTitle>
+        <SectionTitle>
+          Unit <span className="text-yellow-500">Kami</span>
+        </SectionTitle>
       </motion.div>
 
       {/* Grid Card */}

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.jpeg";
 
 export default function Logo() {
@@ -9,7 +10,9 @@ export default function Logo() {
         className="h-8 w-8 md:h-10 md:w-10 object-contain rounded-md shadow-sm"
       />
       <span className="font-extrabold text-sm md:text-lg tracking-wide font-['Raleway'] leading-tight">
-        PESONA SUMUT <span className="text-yellow-500">TRANS</span>
+        <NavLink to={"/"}>
+          PESONA <span className="text-yellow-500">SUMUT TRANS</span>
+        </NavLink>
       </span>
     </div>
   );
