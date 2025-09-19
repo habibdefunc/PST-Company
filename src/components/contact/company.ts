@@ -3,8 +3,8 @@ export const company = {
   phone: "(061) 66477318",
   wa: "+62 822 7776 3288",
   ig: "https://www.instagram.com/pesonasumuttrans2025/",
-  tiktok: "",
-  fb: "https://www.facebook.com/pesonsumuttranss",
+  tiktok: "https://www.tiktok.com/@pesonasumuttrans2025?_t=ZS-8zr6tdKMNTr&_r=1",
+  fb: "https://www.facebook.com/share/164VpVjFhD/",
   email: "pesonasumuttrans@gmail.com",
   address:
     "Komplek Citra Wisata Blok X No.49 Kec. Medan Johor, Kota Medan, Sumatera Utara.",
