@@ -33,7 +33,7 @@ export default function ContactInfo({ custom = 0 }: ContactInfoProps) {
       viewport={{ once: true }}
       custom={custom}
       variants={fadeInUp}
-      className="md:w-1/3 space-y-6"
+      className="md:w-1/3 space-y-6 "
     >
       <h3 className="text-lg font-semibold text-gray-700">{company.name}</h3>
 

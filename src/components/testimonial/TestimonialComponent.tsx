@@ -96,14 +96,14 @@ export default function TestimonialComponent() {
   };
 
   return (
-    <section className="pt-18 md:pt-24 pb-12 px-4 md:px-8 lg:px-16 bg-white font-[Poppins]">
+    <section className="pt-18 md:pt-14 pb-12  md:px-8 lg:px-16 bg-white font-[Poppins]">
       <motion.div
         initial="hidden"
         animate="visible"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={containerVariants}
-        className="max-w-2xl mx-auto bg-gray-50 rounded-3xl shadow-xl p-6 md:p-10"
+        className="max-w-2xl mx-auto p-6 md:p-10"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
           Rating <span className="text-yellow-500">Kami</span>
@@ -115,7 +115,10 @@ export default function TestimonialComponent() {
         {isSuccess ? (
           <SuccessMessage />
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 bg-gray-50 rounded-3xl shadow-md hover:shadow-xl transition-shadow duration-300 px-10 py-10 "
+          >
             <FormFields formData={formData} handleChange={handleChange} />
 
             <RatingStars

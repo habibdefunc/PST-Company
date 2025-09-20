@@ -27,7 +27,7 @@ export default function FormFields({
 }: FormFieldsProps) {
   return (
     <motion.div
-      className="flex flex-col gap-4"
+      className="flex flex-col gap-4 "
       initial="hidden"
       animate="visible"
       variants={{ visible: { transition: { staggerChildren: 0.1 } } }}

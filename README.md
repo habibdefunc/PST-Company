@@ -34,8 +34,6 @@ Website ini berfungsi sebagai **profil digital perusahaan** untuk memperkenalkan
 
 ## 🚀 Instalasi & Menjalankan Project
 
-### 1️⃣ Clone Repository
-
 ```bash
 git clone https://github.com/habibdefunc/PST-Company.git
 cd PST-Company
