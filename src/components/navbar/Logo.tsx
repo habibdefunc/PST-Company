@@ -7,9 +7,9 @@ export default function Logo() {
       <img
         src={logo}
         alt="logo"
-        className="h-8 w-8 md:h-10 md:w-10 object-contain rounded-md shadow-sm"
+        className="h-10 w-10 md:h-12 md:w-12 object-contain rounded-md shadow-sm"
       />
-      <span className="font-extrabold text-sm md:text-lg tracking-wide font-['Raleway'] leading-tight">
+      <span className="font-extrabold text-base md:text-lg tracking-wide font-['Raleway'] leading-tight">
         <NavLink to={"/"}>
           PESONA <span className="text-yellow-500">SUMUT TRANS</span>
         </NavLink>

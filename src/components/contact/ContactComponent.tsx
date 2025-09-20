@@ -25,7 +25,7 @@ export default function ContactComponent() {
         variants={fadeInUp}
         className="text-center mb-8"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Kontak <span className="text-yellow-500">Kami</span>
         </h2>
         <p className="text-gray-500 mt-2 text-sm md:text-base max-w-xl mx-auto">

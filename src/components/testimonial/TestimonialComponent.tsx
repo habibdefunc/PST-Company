@@ -96,16 +96,16 @@ export default function TestimonialComponent() {
   };
 
   return (
-    <section className="py-12 px-4 md:px-8 lg:px-16 bg-white font-[Poppins]">
+    <section className="pt-18 md:pt-24 pb-12 px-4 md:px-8 lg:px-16 bg-white font-[Poppins]">
       <motion.div
         initial="hidden"
         animate="visible"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={containerVariants}
-        className="mt-15 max-w-2xl mx-auto bg-gray-50 rounded-3xl shadow-xl p-6 md:p-10"
+        className="max-w-2xl mx-auto bg-gray-50 rounded-3xl shadow-xl p-6 md:p-10"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
           Rating <span className="text-yellow-500">Kami</span>
         </h2>
         <p className="text-sm md:text-base text-gray-600 text-center mb-6">
@@ -135,6 +135,7 @@ export default function TestimonialComponent() {
                 Rating wajib diisi!
               </motion.p>
             )}
+
             <div className="flex flex-col md:flex-row gap-4">
               <button
                 type="submit"
