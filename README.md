@@ -14,6 +14,7 @@ Website ini berfungsi sebagai **profil digital perusahaan** untuk memperkenalkan
   - WhatsApp
   - Email
   - Google Maps (Link + Embed)
+- ✅ **Rating Kami** menggunakan google sheet dan app script.
 - ✅ **Integrasi Media Sosial** (Instagram, Facebook, TikTok).
 - ✅ **Halaman 404 (Not Found)** custom.
 - ✅ **Desain Mobile Friendly** dengan TailwindCSS.
