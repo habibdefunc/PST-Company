@@ -31,10 +31,10 @@ export default function ContactSection() {
         Kontak <span className="text-yellow-500">Kami</span>
       </SectionTitle>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto ">
         {/* Email */}
         <motion.div custom={0} variants={fadeInUp}>
-          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
+          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
             <Mail className="w-8 h-8 text-yellow-500 mb-3" />
             <a
               href={`mailto:${company.email}`}
@@ -49,7 +49,7 @@ export default function ContactSection() {
 
         {/* Phone */}
         <motion.div custom={1} variants={fadeInUp}>
-          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
+          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
             <Phone className="w-8 h-8 text-yellow-500 mb-3" />
             <a
               href={`tel:${company.phone.replace(/\D/g, "")}`}
@@ -64,7 +64,7 @@ export default function ContactSection() {
 
         {/* Address */}
         <motion.div custom={2} variants={fadeInUp}>
-          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer hover:shadow-lg transition">
+          <Card className="flex flex-col items-center justify-center p-6 min-h-[180px] cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
             <MapPin className="w-8 h-8 text-yellow-500 mb-3" />
             <a
               href={company.mapLink}

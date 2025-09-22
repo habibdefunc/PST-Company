@@ -11,11 +11,20 @@ export default function NotFoundPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
+      {/* Emoticon Sedih dengan Animasi */}
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+        className="text-6xl mb-4"
+      >
+        😢
+      </motion.div>
+
       <h1 className="text-6xl md:text-8xl font-extrabold text-yellow-500 mb-6">
         404
       </h1>
       <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
-        Halaman Tidak Ditemukan
+        Halaman Tidak Ditemukan!
       </h2>
       <p className="text-gray-600 mb-8 text-center max-w-md">
         Maaf, halaman yang kamu cari tidak tersedia. Mungkin sudah dihapus atau

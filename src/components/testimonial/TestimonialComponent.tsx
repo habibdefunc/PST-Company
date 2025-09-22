@@ -68,7 +68,7 @@ export default function TestimonialComponent() {
       );
 
       setIsSuccess(true);
-      setTimeout(() => navigate("/"), 1000);
+      setTimeout(() => navigate("/"), 2000);
     } catch (err) {
       console.error(err);
     } finally {

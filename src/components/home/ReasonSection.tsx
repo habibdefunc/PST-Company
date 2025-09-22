@@ -36,7 +36,7 @@ export default function ReasonsSection() {
       <SectionTitle>
         Kenapa <span className="text-yellow-500">Pilih Kami?</span>
       </SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto ">
         {reasons.map((r, i) => (
           <motion.div
             key={i}
@@ -45,7 +45,7 @@ export default function ReasonsSection() {
             whileInView="visible"
             variants={fadeInUp}
           >
-            <Card className="flex flex-col items-center p-4 md:p-6">
+            <Card className="flex flex-col items-center p-4 md:p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
               <r.icon className="w-10 h-10 text-yellow-500 mb-3" />
               <h4 className="font-semibold text-base md:text-lg">{r.title}</h4>
             </Card>

@@ -144,7 +144,7 @@ export default function TestimonialsSection() {
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.2 }}
                 variants={item}
-                className="bg-gray-50 mx-2 md:mx-4 p-6 md:p-8 rounded-xl shadow flex flex-col items-center relative"
+                className="bg-gray-50 mx-2 md:mx-4 p-6 md:p-8 rounded-xl flex flex-col items-center relative shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <Quote className="w-8 h-8 text-yellow-500 mb-3" />
                 <p className="italic text-gray-600 text-sm md:text-base mb-2">
